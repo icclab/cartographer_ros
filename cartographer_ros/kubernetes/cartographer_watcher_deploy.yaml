@@ -1,0 +1,75 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cartographer-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: cartographer
+      labels:
+        app: cartographer
+        name: cartographer
+    spec:
+      
+      volumes:
+      - name: maps
+        emptyDir: {}
+ 
+      containers:
+      - name: turtlebot-cartographer
+        image: robopaas/cartographer_ros:latest
+        imagePullPolicy: Always
+        env:
+        - name: ROS_HOSTNAME
+          value: cartographer 
+        - name: ROS_MASTER_URI 
+          value: http://master.rod.svc.cluster.local:11311
+        volumeMounts:
+        - name: maps
+          mountPath: /maps
+
+      - name: filewatcher
+        image: robopaas/file_watcher
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: maps
+          mountPath: /maps
+        env:
+          - name: WATCHED_DIR
+            valueFrom:
+              configMapKeyRef:
+                name: filewatchercfg
+                key: WATCHED_DIR
+          - name: OS_USER_NAME
+            valueFrom:
+              secretKeyRef:
+                name: os-pass
+                key: OS_USER_NAME
+          - name: OS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: os-pass
+                key: OS_PASSWORD
+          - name: OS_PROJECT_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: filewatchercfg
+                key: OS_PROJECT_NAME
+          - name: OS_DOMAIN_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: filewatchercfg
+                key: OS_DOMAIN_NAME
+          - name: OS_AUTH_URI
+            valueFrom:
+              configMapKeyRef:
+                name: filewatchercfg
+                key: OS_AUTH_URI
+          - name: OS_SWIFT_URI
+            valueFrom:
+              configMapKeyRef:
+                name: filewatchercfg
+                key: OS_SWIFT_URI
+          
+ 

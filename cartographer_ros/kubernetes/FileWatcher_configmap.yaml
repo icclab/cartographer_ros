@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  WATCHED_DIR : ../maps
+  OS_PROJECT_NAME : Robotics
+  OS_DOMAIN_NAME : Default
+  OS_AUTH_URI : https://ned.cloudlab.zhaw.ch:5000/v3/auth/tokens?nocatalog
+  OS_SWIFT_URI : https://ned.cloudlab.zhaw.ch:6780/swift/v1/maps/
+kind: ConfigMap
+metadata:
+  name: filewatchercfg

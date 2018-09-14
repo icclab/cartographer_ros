@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cartographer-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: cartographer
+      labels:
+        app: cartographer
+        name: cartographer
+    spec:
+      volumes:
+      - name: map-volume
+        persistentVolumeClaim:
+          claimName: map-volume
+      containers:
+      - name: turtlebot-cartographer
+        image: robopaas/cartographer_ros:latest
+        imagePullPolicy: Always
+        env:
+        - name: ROS_HOSTNAME
+          value: cartographer 
+        - name: ROS_MASTER_URI 
+          value: http://master.rod.svc.cluster.local:11311 
+        volumeMounts:
+         - mountPath: "/maps"
+           name: map-volume
