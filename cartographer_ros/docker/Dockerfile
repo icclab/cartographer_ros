@@ -1,4 +1,4 @@
-FROM cartographer-google-base
+FROM robopaas/cartographer_base_image
 
 RUN apt-get update && apt-get install -y vim wget
 
