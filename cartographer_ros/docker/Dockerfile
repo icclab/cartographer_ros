@@ -1,6 +1,6 @@
 FROM robopaas/cartographer_base_image
 
-RUN apt-get update && apt-get install -y vim wget
+RUN apt-get update && apt-get install -y wget
 
 # Set the default directory
 WORKDIR /
