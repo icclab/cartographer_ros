@@ -55,13 +55,16 @@ Common Errors/Warnings
 
 These are common errors that cause the cartographer node to fail or not work properly. 
 
-Error from robot  
+Error from robot: 
+
 *W0913 14:14:41.000000 21962 tf_bridge.cc:52] Lookup would require extrapolation into the future.  Requested time 1536840881.193535400 but the latest data is at time 1536840881.046552729, when looking up transform from frame [odom] to frame [imu_link]*
 
-Error from cartographer
+Error from cartographer:
+
 *F0913 14:16:21.000000 21962 pose_extrapolator.cc:229] Check failed: time >= imu_tracker->time() (636724377780390007 vs. 636724377790000007)*
 
-Things that seem to help
+Things that seem to help:
+
 + Lowering latency 
 + Not using IMU data
 + Giving cartographer more resources
