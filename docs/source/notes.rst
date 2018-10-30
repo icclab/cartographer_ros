@@ -20,6 +20,7 @@ Read through the following documentation:
 + [Configuration](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
 + [Tuning](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
 + [ROS API](https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html)
++ [Cartographer Documentation](https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf)
 
 Takeaways: 
 
@@ -42,6 +43,14 @@ In the /cartographer_ros/launch directory there are two launch files for the TB3
 
 + *turtlebot$_slam.launch* is to build a map from scratch. Configuration file is called *turtlebot$_slam.lua*.
 + *turtlebot$_localization.launch* is to extend or localize the robot in a pre existing .pbstream map state. Simply include *load_state_filename:=$PATH_TO_MAP* as an argument when launching file. Configuration file is called *turtlebot$_localization.slam*.
+
+Useful tools
+-------------
+
+Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.
+  1. rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream
+  2. rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream
+
 
 Things to Consider
 -------------
