@@ -46,7 +46,9 @@ at `our Contribution page`_.
 ICCLAB
 ============
 
-A document with compiled notes can be found in the docs (notes.rst).
+A document with compiled notes can be found in the docs_.
+
+.. _docs : https://github.com/icclab/cartographer_ros/blob/master/docs/source/notes.rst
 
 .. _our Contribution page: https://github.com/googlecartographer/cartographer_ros/blob/master/CONTRIBUTING.md
 
