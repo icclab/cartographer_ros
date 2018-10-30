@@ -43,6 +43,13 @@ Contributing
 You can find information about contributing to Cartographer's ROS integration
 at `our Contribution page`_.
 
+ICCLAB
+============
+
+A document with compiled notes can be found in the docs_.
+
+.. _docs : https://github.com/icclab/cartographer_ros/blob/master/docs/source/notes.rst
+
 .. _our Contribution page: https://github.com/googlecartographer/cartographer_ros/blob/master/CONTRIBUTING.md
 
 .. |build| image:: https://travis-ci.org/googlecartographer/cartographer_ros.svg?branch=master
