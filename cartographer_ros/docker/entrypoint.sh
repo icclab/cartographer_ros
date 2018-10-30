@@ -3,7 +3,7 @@ set -e
 
 echo "Starting cartographer_ros with ROS_MASTER_URI=$ROS_MASTER_URI"
 
-source /opt/ros/indigo/setup.bash
+source /opt/ros/melodic/setup.bash
 source /opt/cartographer_ros/setup.bash
 
 if [ "$CARTO_MODE" = "localization" ]; then

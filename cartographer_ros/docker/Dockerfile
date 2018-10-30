@@ -1,4 +1,4 @@
-FROM robopaas/cartographer_base_image
+FROM robopaas/cartographer_base_image:melodic
 
 RUN apt-get update && apt-get install -y wget
 

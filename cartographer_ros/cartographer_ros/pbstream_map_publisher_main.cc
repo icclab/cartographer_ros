@@ -38,7 +38,7 @@ DEFINE_string(pbstream_filename, "",
               "Filename of a pbstream to draw a map from.");
 DEFINE_string(map_topic, "map", "Name of the published map topic.");
 DEFINE_string(map_frame_id, "map", "Frame ID of the published map.");
-DEFINE_double(resolution, 0.05, "Resolution of a grid cell in the drawn map.");
+DEFINE_double(resolution, 0.025, "Resolution of a grid cell in the drawn map.");
 
 namespace cartographer_ros {
 namespace {
