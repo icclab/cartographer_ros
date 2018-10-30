@@ -22,11 +22,13 @@ Read through the following documentation:
 + Tuning_
 + `ROS API`_
 + `Cartographer Documentation`_
++ `Cartographer ROS Documentation`_
 
 .. _Configuration: https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html
 .. _Tuning: https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html
 .. _ROS API: https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html
 .. _Cartographer Documentation: https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf
+.. _Cartographer ROS Documentation: https://media.readthedocs.org/pdf/google-cartographer-ros/latest/google-cartographer-ros.pdf
 
 Takeaways: 
 
