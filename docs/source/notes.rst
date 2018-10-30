@@ -6,7 +6,8 @@ These are some gathered notes while playing around with cartographer_ros and the
 Building & Installation
 -------------
 
-If you would like to install from source on your local machine follow the *Building & Installation* instructions [here](https://google-cartographer-ros.readthedocs.io/en/latest/) (Scroll down).
+If you would like to install from source on your local machine follow the *Building & Installation* instructions `here
+<https://google-cartographer-ros.readthedocs.io/en/latest/>`_ (Scroll down).
 
 **TIP:** Make a seperate catkin workspace for cartographer and its dependencies. 
 
@@ -17,10 +18,15 @@ Understanding Cartographer
 
 Read through the following documentation:
 
-+ [Configuration](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
-+ [Tuning](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
-+ [ROS API](https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html)
-+ [Cartographer Documentation](https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf)
++ Configuration_
++ Tuning_
++ `ROS API`_
++ `Cartographer Documentation`_
+
+.. _Configuration: https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html
+.. _Tuning: https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html
+.. _ROS API: https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html
+.. _Cartographer Documentation: https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf
 
 Takeaways: 
 
