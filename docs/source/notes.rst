@@ -62,6 +62,10 @@ Steps to convert a serialized Cartographer state (pbstream format) into a static
 Validate sensor data 
   1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
   2. Validate rosbag using ``rosrun cartographer_ros cartographer_rosbag_validate -bag_filename $BAG_FILENAME.bag``
+
+Reccomended time deltas for consecutive messages on topics (based on output of rasbag_validate):
+  + IMU: [0.0005, 0.005] s with no jitter
+  + Scan: [0.005, 0.05] s with no jitter
   
 Things to Consider
 -------------
