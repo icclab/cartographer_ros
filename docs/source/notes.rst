@@ -56,10 +56,13 @@ Useful tools
 -------------
 
 Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.
-  1. rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream
-  2. rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream
-
-
+  1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
+  2. ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
+  
+Validate sensor data 
+  1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
+  2. Validate rosbag using ``rosrun cartographer_ros cartographer_rosbag_validate -bag_filename $BAG_FILENAME.bag``
+  
 Things to Consider
 -------------
 
