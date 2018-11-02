@@ -59,13 +59,18 @@ Steps to convert a serialized Cartographer state (pbstream format) into a static
   1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
   2. ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
   
-Validate sensor data 
+Validate sensor data. 
   1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
   2. Validate rosbag using ``rosrun cartographer_ros cartographer_rosbag_validate -bag_filename $BAG_FILENAME.bag``
 
 Reccomended time deltas for consecutive messages on topics (based on output of rasbag_validate):
   + IMU: [0.0005, 0.005] s with no jitter
   + Scan: [0.005, 0.05] s with no jitter
+  
+Steps to add gravity as part of linear acceleration in imu data (if missing).
+  1. remap imu topic to **imu_in** e.g. for TB2 add the following ``<remap from="/mobile_base/sensors/imu_data" to="imu_in"/>`` to /opt/ros/kinetic/share/turtlebot_bringup/launch/includes/kobuki/mobile_base.launch.xml
+  2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node``
+  3. verify ``rostopic echo imu_out``
   
 Things to Consider
 -------------
