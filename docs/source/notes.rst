@@ -7,9 +7,11 @@ Building & Installation
 -------------
 
 If you would like to install from source on your local machine follow the *Building & Installation* instructions `here
-<https://google-cartographer-ros.readthedocs.io/en/latest/>`_ (Scroll down).
+<https://google-cartographer-ros.readthedocs.io/en/latest/>`_ (Scroll down) or `here for TurtleBot integration <https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/>`_.
 
 **TIP:** Make a seperate catkin workspace for cartographer and its dependencies. 
+
+**TIP:** Once you have successfully built and installed Cartographer, replace inside your catkin workspace *cartographer_ros* with this repository by cloning it and then rebuilding the workspace ``catkin_make_isolated --install --use-ninja``.
 
 Another option would be to run a Docker container using one of the provided Dockerfiles found in the git repository (a github token is required to build the Docker image).
 
@@ -69,7 +71,7 @@ Reccomended time deltas for consecutive messages on topics (based on output of r
   
 Steps to add gravity as part of linear acceleration in imu data (if missing).
   1. remap imu topic to **imu_in** e.g. for TB2 add the following ``<remap from="/mobile_base/sensors/imu_data" to="imu_in"/>`` to /opt/ros/kinetic/share/turtlebot_bringup/launch/includes/kobuki/mobile_base.launch.xml
-  2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node``
+  2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node`` (need to have cartographer_turtlebot installed)
   3. verify ``rostopic echo imu_out``
   
 Things to Consider
