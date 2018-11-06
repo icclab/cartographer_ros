@@ -98,7 +98,10 @@ Things that seem to help:
 
 + Lowering latency 
 + Not using IMU data
-+ Giving cartographer more resources
++ Giving cartographer more computational power
 
 **NOTE:** These errors require further investigation and continued documentation/testing on these issues is greatly appreciated.
 
+GitHub issues to check out
+--------------------
++ Splitting local and global SLAM on different machines: https://github.com/googlecartographer/cartographer_ros/issues/819
