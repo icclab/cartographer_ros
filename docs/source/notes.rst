@@ -102,3 +102,6 @@ Things that seem to help:
 
 **NOTE:** These errors require further investigation and continued documentation/testing on these issues is greatly appreciated.
 
+Other things worth checking out
+--------------------
++ Splitting local and global SLAM on different machines: https://github.com/googlecartographer/cartographer_ros/issues/819
