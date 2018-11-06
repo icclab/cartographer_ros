@@ -105,3 +105,4 @@ Things that seem to help:
 GitHub issues to check out
 --------------------
 + Splitting local and global SLAM on different machines: https://github.com/googlecartographer/cartographer_ros/issues/819
++ Odom frame transform to map frame unstable: https://github.com/googlecartographer/cartographer_ros/issues/1090
