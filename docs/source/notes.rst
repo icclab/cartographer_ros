@@ -49,6 +49,21 @@ In the /cartographer_ros/launch directory there are two launch files for the TB3
 + *turtlebot$_slam.launch* is to build a map from scratch. Configuration file is called *turtlebot$_slam.lua*.
 + *turtlebot$_localization.launch* is to extend or localize the robot in a pre existing .pbstream map state. Simply include *load_state_filename:=$PATH_TO_MAP* as an argument when launching file. Configuration file is called *turtlebot$_localization.slam*.
 
+Tuning
+-------------
+Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
+
+**Tips to increase stability of system if unstable:**
+
++ decrease speed and acceleration of robot
++ use ceres scan matcher and not online correlative scan matching (this is very expensive)
++ decrease map quality
+
+**Tips while tuning:**
+
++ disable global SLAM to tune local SLAM by setting ``POSE_GRAPH.optimize_every_n_nodes = 0``
++ tune with ``TRAJECTORY_BUILDER_2D.use_imu_data = false``
+
 Useful tools
 -------------
 
