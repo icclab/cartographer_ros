@@ -22,7 +22,8 @@ Read through the following documentation:
 
 + `Cartographer Documentation`_
 + `Cartographer ROS Documentation`_
-+ **It is highly reccomended to read through ALL the docs in this folder**
++ **It is highly reccomended to read through ALL the docs in this directory**
++ **RUN THE DEMOS**
 
 .. _Cartographer Documentation: https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf
 .. _Cartographer ROS Documentation: https://media.readthedocs.org/pdf/google-cartographer-ros/latest/google-cartographer-ros.pdf
@@ -89,7 +90,7 @@ Reccomended time deltas for consecutive messages on topics (based on output of r
   + Scan: [0.005, 0.05] s with no jitter
   
 Steps to add gravity as part of linear acceleration in imu data (if missing).
-  1. remap imu topic to **imu_in** e.g. for TB2 add the following ``<remap from="/mobile_base/sensors/imu_data" to="imu_in"/>`` to /opt/ros/kinetic/share/turtlebot_bringup/launch/includes/kobuki/mobile_base.launch.xml
+  1. remap imu_in to the name of imu topic e.g. for TB2 add the following ``<remap from="imu_in" to="/mobile_base/sensors/imu_data_raw" />`` as part of the flat_world_imu_node
   2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node`` (need to have cartographer_turtlebot installed)
   3. verify ``rostopic echo imu_out``
   
@@ -126,3 +127,4 @@ GitHub issues to check out
 + Splitting local and global SLAM on different machines: https://github.com/googlecartographer/cartographer_ros/issues/819
 + Odom frame transform to map frame unstable: https://github.com/googlecartographer/cartographer_ros/issues/1090
 + Triggering global localization on service request: https://github.com/googlecartographer/cartographer_ros/issues/1083
++ Using landmarks: https://github.com/googlecartographer/cartographer_ros/issues/1067
