@@ -22,7 +22,8 @@ Read through the following documentation:
 
 + `Cartographer Documentation`_
 + `Cartographer ROS Documentation`_
-+ **It is highly reccomended to read through ALL the docs in this folder**
++ **It is highly reccomended to read through ALL the docs in this directory**
++ **RUN THE DEMOS**
 
 .. _Cartographer Documentation: https://media.readthedocs.org/pdf/google-cartographer/latest/google-cartographer.pdf
 .. _Cartographer ROS Documentation: https://media.readthedocs.org/pdf/google-cartographer-ros/latest/google-cartographer-ros.pdf
@@ -49,6 +50,30 @@ In the /cartographer_ros/launch directory there are two launch files for the TB3
 + *turtlebot$_slam.launch* is to build a map from scratch. Configuration file is called *turtlebot$_slam.lua*.
 + *turtlebot$_localization.launch* is to extend or localize the robot in a pre existing .pbstream map state. Simply include *load_state_filename:=$PATH_TO_MAP* as an argument when launching file. Configuration file is called *turtlebot$_localization.slam*.
 
+Tuning
+-------------
+Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
+
+**Tips to increase stability of system if unstable:**
+
++ decrease speed and acceleration of robot
++ use ceres scan matcher and not online correlative scan matching (this is very expensive)
++ decrease map quality
+
+**Tips while tuning:**
+
++ disable global SLAM to tune local SLAM by setting ``POSE_GRAPH.optimize_every_n_nodes = 0``
++ tune with ``TRAJECTORY_BUILDER_2D.use_imu_data = false``
+
+**Odom frame:**
+
++ The frame_id "odom" is used by Cartographer for output
++ If another system such as odometry publishes topics with frame_id "odom" then it will conflict with cartographer
++ Configure the node that publishes the odometry messages to change the frame_id
++ `More info here`_ 
+
+.. _More info here: https://github.com/googlecartographer/cartographer_ros/issues/1056#issuecomment-437291442 
+
 Useful tools
 -------------
 
@@ -65,7 +90,7 @@ Reccomended time deltas for consecutive messages on topics (based on output of r
   + Scan: [0.005, 0.05] s with no jitter
   
 Steps to add gravity as part of linear acceleration in imu data (if missing).
-  1. remap imu topic to **imu_in** e.g. for TB2 add the following ``<remap from="/mobile_base/sensors/imu_data" to="imu_in"/>`` to /opt/ros/kinetic/share/turtlebot_bringup/launch/includes/kobuki/mobile_base.launch.xml
+  1. remap imu_in to the name of imu topic e.g. for TB2 add the following ``<remap from="imu_in" to="/mobile_base/sensors/imu_data" />`` as part of the flat_world_imu_node
   2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node`` (need to have cartographer_turtlebot installed)
   3. verify ``rostopic echo imu_out``
   
@@ -102,3 +127,4 @@ GitHub issues to check out
 + Splitting local and global SLAM on different machines: https://github.com/googlecartographer/cartographer_ros/issues/819
 + Odom frame transform to map frame unstable: https://github.com/googlecartographer/cartographer_ros/issues/1090
 + Triggering global localization on service request: https://github.com/googlecartographer/cartographer_ros/issues/1083
++ Using landmarks: https://github.com/googlecartographer/cartographer_ros/issues/1067
