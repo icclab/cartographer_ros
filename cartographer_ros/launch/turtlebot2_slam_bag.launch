@@ -15,14 +15,12 @@
 -->
 
 <launch>
-  <arg name="load_state_filename" default="$(find cartographer_ros)/map_state/cartographer_demo_map.pbstream" />
-  <param name="/use_sim_time" value="false" />
-  
+  <param name="/use_sim_time" value="true" />
+
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename turtlebot2_localization.lua
-          -load_state_filename $(arg load_state_filename)"
+          -configuration_basename turtlebot2_slam.lua"
       output="screen">
     <remap from="scan" to="/scan" />
   </node>
@@ -36,7 +34,10 @@
        <remap from="imu_out" to="/imu" />
   </node>
 
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+
   <!--node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" /-->
-
+  
 </launch>

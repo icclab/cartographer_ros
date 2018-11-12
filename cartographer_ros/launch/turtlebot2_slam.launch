@@ -23,13 +23,18 @@
           -configuration_basename turtlebot2_slam.lua"
       output="screen">
     <remap from="scan" to="/scan" />
-    <remap from="imu" to="/imu_out" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.025" />
   
   <node name="cartographer_flat_world_imu_node" pkg="cartographer_turtlebot"
-      type="cartographer_flat_world_imu_node" />
+      type="cartographer_flat_world_imu_node" >
+       <remap from="imu_in" to="/mobile_base/sensors/imu_data" />
+       <remap from="imu_out" to="/imu" />
+  </node>
+
+  <!--node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" /-->
   
 </launch>
