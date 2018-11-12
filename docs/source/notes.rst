@@ -90,7 +90,7 @@ Reccomended time deltas for consecutive messages on topics (based on output of r
   + Scan: [0.005, 0.05] s with no jitter
   
 Steps to add gravity as part of linear acceleration in imu data (if missing).
-  1. remap imu_in to the name of imu topic e.g. for TB2 add the following ``<remap from="imu_in" to="/mobile_base/sensors/imu_data_raw" />`` as part of the flat_world_imu_node
+  1. remap imu_in to the name of imu topic e.g. for TB2 add the following ``<remap from="imu_in" to="/mobile_base/sensors/imu_data" />`` as part of the flat_world_imu_node
   2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node`` (need to have cartographer_turtlebot installed)
   3. verify ``rostopic echo imu_out``
   
