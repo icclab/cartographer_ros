@@ -27,8 +27,8 @@
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.025" />
-  
-  <node name="cartographer_flat_world_imu_node" pkg="cartographer_turtlebot"
+
+  <node name="cartographer_flat_world_imu_node" pkg="cartographer_ros"
       type="cartographer_flat_world_imu_node" >
        <remap from="imu_in" to="/mobile_base/sensors/imu_data" />
        <remap from="imu_out" to="/imu" />

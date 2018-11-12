@@ -12,6 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+google_binary(cartographer_flat_world_imu_node
+  SRCS
+    flat_world_imu_node_main.cc
+)
+
+install(TARGETS cartographer_flat_world_imu_node
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 google_binary(cartographer_assets_writer
   SRCS
     assets_writer_main.cc
