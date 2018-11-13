@@ -64,6 +64,7 @@ Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
 
 + disable global SLAM to tune local SLAM by setting ``POSE_GRAPH.optimize_every_n_nodes = 0``
 + tune with ``TRAJECTORY_BUILDER_2D.use_imu_data = false``
++ set ``POSE_GRAPH.optimization_problem.odometry_rotation_weight = 0`` if using odometry from wheel encoders since they often have a high uncertainty in rotation
 
 **Odom frame:**
 
@@ -99,7 +100,6 @@ Things to Consider
 
 + *submaps.resolution* should be matching with resoution in the .pbstream file when doing localization. 
 + Cartographer requires huge amounts of computational resources so it is not reccomended to run Cartographer on the Turtlebot.
-+ Current configuration files are not very fine tuned (mostly the same as default settings).
 
 Common Errors/Warnings
 -------------
