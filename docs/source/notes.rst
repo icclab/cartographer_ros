@@ -70,7 +70,7 @@ Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
 
 + The frame_id "odom" is used by Cartographer for output
 + If another system such as odometry publishes topics with frame_id "odom" then it will conflict with cartographer
-+ Configure the node that publishes the odometry messages to change the frame_id
++ Configure the node that publishes the odometry messages to change the frame_id or disable the transform coming from the odometry source
 + `More info here`_ 
 
 .. _More info here: https://github.com/googlecartographer/cartographer_ros/issues/1056#issuecomment-437291442 
