@@ -78,23 +78,37 @@ Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
 Useful tools
 -------------
 
-Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.
+**Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.**
   1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
   2. ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
   
-Validate sensor data. 
+**Validate sensor data.** 
   1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
   2. Validate rosbag using ``rosrun cartographer_ros cartographer_rosbag_validate -bag_filename $BAG_FILENAME.bag``
 
-Reccomended time deltas for consecutive messages on topics (based on output of rasbag_validate):
+**Reccomended time deltas for consecutive messages on topics (based on output of rasbag_validate):**
   + IMU: [0.0005, 0.005] s with no jitter
   + Scan: [0.005, 0.05] s with no jitter
   
-Steps to add gravity as part of linear acceleration in imu data (if missing).
+**Steps to add gravity as part of linear acceleration in imu data (if missing).**
   1. remap imu_in to the name of imu topic e.g. for TB2 add the following ``<remap from="imu_in" to="/mobile_base/sensors/imu_data" />`` as part of the flat_world_imu_node
   2. ``rosrun cartographer_turtlebot cartographer_flat_world_imu_node`` (need to have cartographer_turtlebot installed)
   3. verify ``rostopic echo imu_out``
-  
+
+**Add the following code to remove unwanted tf frames.**
+
+.. code-block:: launch
+
+  <node name="tf_remove_frames" pkg="cartographer_ros"
+      type="tf_remove_frames.py">
+    <remap from="tf_out" to="/tf" />
+    <rosparam param="remove_frames">
+      - map
+      - odom_combined
+    </rosparam>
+  </node>
+
+
 Things to Consider
 -------------
 
