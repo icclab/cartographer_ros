@@ -50,6 +50,13 @@ In the /cartographer_ros/launch directory there are two launch files for the TB3
 + *turtlebot$_slam.launch* is to build a map from scratch. Configuration file is called *turtlebot$_slam.lua*.
 + *turtlebot$_localization.launch* is to extend or localize the robot in a pre existing .pbstream map state. Simply include *load_state_filename:=$PATH_TO_MAP* as an argument when launching file. Configuration file is called *turtlebot$_localization.slam*.
 
+Testing Cartographer with Summit_xl
+-------------
+
+**Summit in simulation:**
+  1. ``roslaunch icclab_turtlebot irlab_sim_summit_xls_complete.launch``
+  2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=true``
+
 Tuning
 -------------
 Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
