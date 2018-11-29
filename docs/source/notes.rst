@@ -114,6 +114,7 @@ Things to Consider
 
 + *submaps.resolution* should be matching with resoution in the .pbstream file when doing localization. 
 + Cartographer requires huge amounts of computational resources so it is not reccomended to run Cartographer on the Turtlebot.
++ ``/use_sim_time`` should be set to true if running cartographer with simulated robot + world
 
 Common Errors/Warnings
 -------------
