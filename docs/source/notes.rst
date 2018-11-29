@@ -36,7 +36,7 @@ Takeaways:
 + Localization mode is useful when extending a pre-made map (pass in a pre-made map as an argument and the robot will find itself on the map and continue to build it).
 + Tuning Cartographer is a pain though there are tools to evaluate SLAM.
 + IMU data is optional for 2D SLAM (used for TB3).
-+ Call the services finish_trajectory and write_state to save SLAM as a .pbstream file.
++ Call the services finish_trajectory and write_state to save SLAM as a .pbstream file
 + Occupancy grid node listen to submaps published by SLAM and builds a ROS occupancy_grid out of them and publishes the /map topic (expensive and slow though necessary because TurtleBot nav stack cannot deal with Cartographer's submaps directly).
 + There are hundreds of parameters that can be set in the configuration files (.lua files). Some are described in the Tuning section mentioned above.
 
@@ -84,6 +84,8 @@ Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
 
 Useful tools
 -------------
+**Step to save a map in a serialized state**
+  1. ``rosservice call /write_state "filename: '$MAP_NAME.pbstream' include_unfinished_submaps: false"`` (**TIP:** press tab after ``/write_state`` to get arguments and note map gets saved by default to ``~/.ros``)
 
 **Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.**
   1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
