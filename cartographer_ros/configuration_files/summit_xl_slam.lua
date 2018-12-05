@@ -46,8 +46,7 @@ options = {
 MAP_BUILDER.use_trajectory_builder_2d = true
 
 TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 2
-TRAJECTORY_BUILDER_2D.submaps.num_range_data = 45
-
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 45 -- number of incoming laser scan messages per 5--30 seconds
 TRAJECTORY_BUILDER_2D.submaps.grid_options_2d.resolution = 0.05
 
 TRAJECTORY_BUILDER_2D.max_range = 15.
