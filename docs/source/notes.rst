@@ -77,7 +77,7 @@ Make sure to read *tuning.rst* and *algo_walkthrough.rst* in the docs.
 
 + Can choose whether to let cartographer or wheel odometry to broadcast the transform "odom -> base_link"
 + Either way need to make sure only one of these components is providing the transform
-+ To configure cartographer to publish the transform set ``provide_odom_frame = false`` in lua configuration file
++ To configure cartographer to publish the transform set ``provide_odom_frame = true`` in lua configuration file
 + `More info here`_ 
 
 .. _More info here: https://github.com/googlecartographer/cartographer_ros/issues/1095#issuecomment-441871307 
