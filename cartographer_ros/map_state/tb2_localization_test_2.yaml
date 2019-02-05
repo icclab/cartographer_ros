@@ -1,6 +1,0 @@
-image: tb2_localization_test_2.pgm
-resolution: 0.025000
-origin: [-10.226101, -19.307544, 0.0]
-negate: 0
-occupied_thresh: 0.65
-free_thresh: 0.196
