@@ -1,0 +1,6 @@
+image: tb2_map_test_imu_4.pgm
+resolution: 0.025000
+origin: [-23.949011, -22.579173, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

@@ -1,0 +1,6 @@
+image: tb2_map_test_odom_source_1.pgm
+resolution: 0.025000
+origin: [-9.908311, -21.280893, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
