@@ -54,8 +54,8 @@ Testing Cartographer with Summit_xl
 -------------
 
 **Summit in simulation:**
-  1. ``roslaunch icclab_turtlebot irlab_sim_summit_xls_complete.launch``
-  2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=true``
+  1. ``roslaunch icclab_summit_xl irlab_sim_summit_xls_complete.launch move_base_robot_a:=true launch_rviz_nav:=true``
+  2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=true launch_rviz:=false``
 
 Tuning
 -------------
