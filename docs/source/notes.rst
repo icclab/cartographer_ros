@@ -54,12 +54,10 @@ Testing Cartographer with Summit_xl
 -------------
 
 **Summit in simulation:**
-
   1. ``roslaunch icclab_summit_xl irlab_summit_xl_cartographer.launch``
   2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=true launch_rviz:=false``
   
-  **Summit ITR:**
-  
+**Summit ITR:**
   1. ``roslaunch icclab_summit_xl irlab_summit_xl_cartographer.launch sim:=false``
   2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=false launch_rviz:=false``
 
