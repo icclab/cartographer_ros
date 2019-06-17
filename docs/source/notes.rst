@@ -91,9 +91,9 @@ Useful tools
 **Step to save a map in a serialized state**
   1. ``rosservice call /write_state "filename: '$MAP_NAME.pbstream' include_unfinished_submaps: false"`` (**TIP:** press tab after ``/write_state`` to get arguments and note map gets saved by default to ``~/.ros``)
 
-**Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.**
-  1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
-  2. ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
+**Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid.**
+  * To publish map as a topic run ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
+  * To convert serialized map to file formats *.pgm + *.yaml run ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
   
 **Validate sensor data.** 
   1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
