@@ -54,8 +54,12 @@ Testing Cartographer with Summit_xl
 -------------
 
 **Summit in simulation:**
-  1. ``roslaunch icclab_summit_xl irlab_sim_summit_xls_complete.launch move_base_robot_a:=true launch_rviz_nav:=true``
+  1. ``roslaunch icclab_summit_xl irlab_summit_xl_cartographer.launch``
   2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=true launch_rviz:=false``
+  
+**Summit ITR:**
+  1. ``roslaunch icclab_summit_xl irlab_summit_xl_cartographer.launch sim:=false``
+  2. ``ROS_NAMESPACE=summit_xl roslaunch cartographer_ros summit_xl_slam.launch use_sim_time:=false launch_rviz:=false``
 
 Tuning
 -------------
@@ -87,9 +91,9 @@ Useful tools
 **Step to save a map in a serialized state**
   1. ``rosservice call /write_state "filename: '$MAP_NAME.pbstream' include_unfinished_submaps: false"`` (**TIP:** press tab after ``/write_state`` to get arguments and note map gets saved by default to ``~/.ros``)
 
-**Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid. The following steps will output a .yaml and .pgm mapfile.**
-  1. ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
-  2. ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
+**Steps to convert a serialized Cartographer state (pbstream format) into a static occupancy grid.**
+  * To publish map as a topic run ``rosrun cartographer_ros cartographer_pbstream_map_publisher -pbstream_filename $(filename).pbstream``
+  * To convert serialized map to file formats *.pgm + *.yaml run ``rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename $(filename).pbstream``
   
 **Validate sensor data.** 
   1. Record desired topics using ``rosbag record TOPIC1 [TOPIC2 TOPIC3 ...]``
