@@ -23,6 +23,9 @@
           -configuration_basename turtlebot3_slam.lua"
       output="screen">
     <remap from="scan" to="/scan" />
+    <remap from="imu" to="/imu_throttle" />
+    <remap from="tf" to="/tf_throttle" />
+    <remap from="odom" to="/odom_throttle" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
